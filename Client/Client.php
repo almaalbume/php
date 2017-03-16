@@ -36,4 +36,17 @@ class Client {
             return false;
         }
     }
+
+    public function deleteClient() {
+        $query = "DELETE FROM Client WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $stmt->bindParam(1, $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

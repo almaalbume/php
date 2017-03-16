@@ -17,7 +17,7 @@
 
         self.getClientList = getClientList;
         self.addClient = addClient;
-
+        self.deleteClient = deleteClient;
 
         init();
 
@@ -48,6 +48,12 @@
         }
 
 
-
+        function deleteClient(id) {
+            ClientFactory.deleteClient(id)
+                    .then(function () {
+                        swal("Eliminado", "", "success");
+                        getClientList();
+                    });
+        }
     }
 })();

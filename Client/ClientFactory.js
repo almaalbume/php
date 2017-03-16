@@ -10,7 +10,8 @@
     function ClientFactory($http) {
         return  {
             getClientList: getClientList,
-            addClient: addClient
+            addClient: addClient,
+            deleteClient: deleteClient
         };
 
         function getClientList() {
@@ -36,6 +37,19 @@
                 console.log("Error:  (addClient)");
             });
         }
+
+        function deleteClient(id) {
+            return $http({
+                method: 'POST',
+                data: {id: id},
+                url: 'http://localhost/anguarPHP/Client/deleteClient.php'
+            }).then(function (response) {
+                return response.data;
+            }, function () {
+                console.log("Error:  (deleteClient)");
+            });
+        }
+
 
     }
 })();

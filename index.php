@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title></title>
         <link href="bower_components/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css"/>
     </head>
     <body ng-controller="ClientController as main">
         <div class="container">
@@ -65,6 +66,7 @@
                             <td>{{client.Lastname}}</td>
                             <td>{{client.birthday}}</td>
                             <td>{{client.gender}}</td>
+                            <td><button class="btn btn-danger" ng-click="main.deleteClient(client.id)"> Eliminar</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -74,5 +76,6 @@
         <script src="module.js" type="text/javascript"></script>
         <script src="Client/ClientController.js" type="text/javascript"></script>
         <script src="Client/ClientFactory.js" type="text/javascript"></script>
+        <script src="bower_components/sweetalert/dist/sweetalert.min.js" type="text/javascript"></script>
     </body>
 </html>
