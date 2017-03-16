@@ -21,18 +21,22 @@ class Client {
     }
 
     public function createClient() {
-        $query = "INSERT INTO CLIENT(firstname, lastname, birthday, gender) "
-                . "VALUES('" . $this->firstname . "'"
-                . ",'" . $this->lastname . "'"
-                . ",'" . $this->birthday . "'"
-                . ",'" . $this->gender . "')";
+        $query = "INSERT INTO CLIENT(firstname, lastname, birthday, gender) VALUES(?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
+
+        $this->firstname = htmlspecialchars(strip_tags($this->firstname));
+        $this->lastname = htmlspecialchars(strip_tags($this->lastname));
+        $this->birthday = htmlspecialchars(strip_tags($this->birthday));
+        $this->gender = htmlspecialchars(strip_tags($this->gender));
+
+        $stmt->bindParam(1, $this->firstname);
+        $stmt->bindParam(2, $this->lastname);
+        $stmt->bindParam(3, $this->birthday);
+        $stmt->bindParam(4, $this->gender);
+
         if ($stmt->execute()) {
             return true;
         } else {
-            echo "<pre>";
-            print_r($stmt->errorInfo());
-            echo "</pre>";
             return false;
         }
     }
@@ -49,4 +53,5 @@ class Client {
             return false;
         }
     }
+
 }

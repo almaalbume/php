@@ -28,7 +28,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="birthDay">F. Nacimiento:</label>
-                        <input type="date" ng-model="main.birthday" id="birthDay" name="birthDay" class="form-control"/>
+                        <input type="date" id="birthDay" name="birthDay" class="form-control"/>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -63,19 +63,44 @@
                         <tr ng-repeat="client in main.clientList">
                             <td>{{client.id}}</td>
                             <td>{{client.firstname}}</td>
-                            <td>{{client.Lastname}}</td>
+                            <td>{{client.lastname}}</td>
                             <td>{{client.birthday}}</td>
                             <td>{{client.gender}}</td>
-                            <td><button class="btn btn-danger" ng-click="main.deleteClient(client.id)"> Eliminar</button></td>
+                            <td>
+                                <button class="btn btn-success" ng-click="main.updateClient(client.id)">Modificar</button>
+                                <button class="btn btn-danger" ng-click="main.deleteClient(client.id)"> Eliminar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
-        <script src="module.js" type="text/javascript"></script>
-        <script src="Client/ClientController.js" type="text/javascript"></script>
-        <script src="Client/ClientFactory.js" type="text/javascript"></script>
-        <script src="bower_components/sweetalert/dist/sweetalert.min.js" type="text/javascript"></script>
-    </body>
+
+        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg center-block" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-primary">
+                        
+                        <h3><span class="fa fa-file-text-o"/> Nueva categoría</h3>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+    <script src="module.js" type="text/javascript"></script>
+    <script src="Client/ClientController.js" type="text/javascript"></script>
+    <script src="Client/ClientFactory.js" type="text/javascript"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js" type="text/javascript"></script>
+</body>
 </html>

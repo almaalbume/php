@@ -18,6 +18,7 @@
         self.getClientList = getClientList;
         self.addClient = addClient;
         self.deleteClient = deleteClient;
+        self.updateClient = updateClient;
 
         init();
 
@@ -47,7 +48,6 @@
                     });
         }
 
-
         function deleteClient(id) {
             ClientFactory.deleteClient(id)
                     .then(function () {
@@ -55,5 +55,12 @@
                         getClientList();
                     });
         }
+
+        function updateClient(id) {
+            alert('sooooo');
+            $('#detailModal').modal({backdrop: "static"});
+        }
+
+
     }
 })();

@@ -15,8 +15,6 @@ $client->lastname = $data->lastname;
 $client->birthday = $data->birthday;
 $client->gender = $data->gender;
 
-$client->createClient();
-
 if ($client->createClient()) {
     echo "true";
 } else {
